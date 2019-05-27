@@ -26,3 +26,13 @@ To check Yarn version:
 yarn --version
 ```
 
+## Install React
+
+Install React via CDN tag. 
+
+```
+<script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+<script src="/scripts/app.js"></script>
+```
+
