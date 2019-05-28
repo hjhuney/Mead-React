@@ -88,7 +88,29 @@ babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
 * Presets (--presets=env, react)
 * Watch (--watch); watches our source app.js for changes; automatically create new scripts app.js file with changes
 
+## JSX and Babel
 
+We can only use one root element in JSX. For instance, this is invalid since it contains 2 root tags ("h1" and "p"). 
+
+```
+let template = <h1>Indecision App</h1> <p>This is some info!</p>;
+```
+
+This is valid, however, since both the "h1" and "p" are enclosed in a "div" tag:
+
+```
+let template = <div><h1>Indecision App</h1> <p>This is some info!</p></div>;
+```
+
+Can format differently, such as this:
+
+```
+let template = 
+    <div>
+    <h1>Indecision App</h1> 
+    <p>This is some info!</p>
+    </div>;
+```
 
 
 
