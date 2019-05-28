@@ -88,7 +88,7 @@ babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
 * Presets (--presets=env, react)
 * Watch (--watch); watches our source app.js for changes; automatically create new scripts app.js file with changes
 
-## JSX and Babel
+## JSX Formatting
 
 We can only use one root element in JSX. For instance, this is invalid since it contains 2 root tags ("h1" and "p"). 
 
