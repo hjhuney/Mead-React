@@ -153,3 +153,65 @@ let appRoot = document.getElementById('app');
 ReactDOM.render(template3, appRoot);
 ```
 
+## Conditional Rendering
+
+Example:
+
+```
+let user = {
+    name: 'Walrus McConnell',
+    age: 59, 
+    location: 'Lubbock, TX'
+};
+
+
+function getLocation(location) {
+    if (location) {
+        return location;
+    } else {
+        return 'Unknown';
+    }
+}
+
+let template3 = 
+    <div>
+    <h1>{user.name}</h1> 
+    <p>Age: {user.age}</p>
+    <p>Location: {getLocation(user.location)}</p>
+    </div>;
+
+let appRoot = document.getElementById('app');
+
+ReactDOM.render(template3, appRoot);
+```
+
+## Ternary Operators in JSX
+
+Example
+
+```
+let template4 = 
+    <div>
+    <h1>{user.name ? user.name: 'Anonymous'}</h1> 
+    <p>Age: {user.age}</p>
+    {getLocation(user.location)}
+    </div>;
+```
+
+In example above, we render user.name if available. If not, we render "Anonymous"
+
+
+## Logical && Operator
+
+Example:
+
+```
+let template4 = 
+    <div>
+    <h1>{user.name ? user.name: 'Anonymous'}</h1> 
+    {user.age >= 18 && <p>Age: {user.age}</p>}
+    {getLocation(user.location)}
+    </div>;
+```
+
+For user age, if user is over 18, we render user.age. If not, nothing is rendered. 
