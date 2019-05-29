@@ -112,5 +112,44 @@ let template =
     </div>;
 ```
 
+## JSX Expressions
 
+Using dyanmic JSX expression with userName:
+
+```
+let userName = 'Walrus';
+
+// create a new templete with JSX expression
+let template2 = 
+    <div>
+    <h1>{userName}</h1> 
+    <p>Age: 54</p>
+    <p>Location: Alquberque, NM</p>
+    </div>;
+```
+
+In order to render object you must use object properties. 
+
+```
+// user object
+
+let user = {
+    name: 'Walrus McConnell',
+    age: 59, 
+    location: 'Lubbock, TX'
+};
+
+// create template with object
+
+let template3 = 
+    <div>
+    <h1>{user.name}</h1> 
+    <p>Age: {user.age}</p>
+    <p>Location: {user.location}</p>
+    </div>;
+
+let appRoot = document.getElementById('app');
+
+ReactDOM.render(template3, appRoot);
+```
 
