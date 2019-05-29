@@ -1,15 +1,12 @@
 console.log('App.js is running!');
 
-// create an app object title / subtitle
-// user title / subtitle in the template
-// render template
 
 // JSX - JavaScript XML
 
 let appInfo = {
     title: "Merfin Melvin's Merfin' App!", 
     subtitle: "Let's merf this hizny up, booooyyyzzzz!", 
-    userTitle: "Stuff"
+    options: ['One', 'Two']
 }
 
 // let template = 
@@ -25,7 +22,8 @@ let appInfo = {
 let template = 
     <div>
     <h1>{appInfo.title}</h1> 
-    <p>{appInfo.subtitle}</p>
+    {appInfo.subtitle && <p>{appInfo.subtitle}</p>}
+    <p>{appInfo.options.length > 0 ? "here are your options" : "no options"}</p>
     <ol>
     <li>Item One</li>
     <li>Item One</li>
@@ -37,9 +35,18 @@ let template =
 
 let user = {
     name: 'Walrus McConnell',
-    age: 59, 
+    age: 56, 
     location: 'Lubbock, TX'
 };
+
+
+function getLocation(location) {
+    if (location) {
+        return <p>Location: {location}</p>;
+    } else {
+        return undefined;
+    }
+}
 
 // user variables
 
@@ -61,7 +68,16 @@ let template3 =
     <div>
     <h1>{user.name}</h1> 
     <p>Age: {user.age}</p>
-    <p>Location: {user.location}</p>
+    {getLocation(user.location)}
+    </div>;
+
+// ternary operator
+
+let template4 = 
+    <div>
+    <h1>{user.name ? user.name: 'Anonymous'}</h1> 
+    {user.age >= 18 && <p>Age: {user.age}</p>}
+    {getLocation(user.location)}
     </div>;
 
 let appRoot = document.getElementById('app');

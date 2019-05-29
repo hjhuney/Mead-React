@@ -2,16 +2,12 @@
 
 console.log('App.js is running!');
 
-// create an app object title / subtitle
-// user title / subtitle in the template
-// render template
-
 // JSX - JavaScript XML
 
 var appInfo = {
     title: "Merfin Melvin's Merfin' App!",
     subtitle: "Let's merf this hizny up, booooyyyzzzz!",
-    userTitle: "Stuff"
+    options: ['One', 'Two']
 
     // let template = 
     //     <div>
@@ -31,10 +27,15 @@ var appInfo = {
         null,
         appInfo.title
     ),
-    React.createElement(
+    appInfo.subtitle && React.createElement(
         "p",
         null,
         appInfo.subtitle
+    ),
+    React.createElement(
+        "p",
+        null,
+        appInfo.options.length > 0 ? "here are your options" : "no options"
     ),
     React.createElement(
         "ol",
@@ -56,9 +57,22 @@ var appInfo = {
 
 var user = {
     name: 'Walrus McConnell',
-    age: 59,
+    age: 56,
     location: 'Lubbock, TX'
 };
+
+function getLocation(location) {
+    if (location) {
+        return React.createElement(
+            "p",
+            null,
+            "Location: ",
+            location
+        );
+    } else {
+        return undefined;
+    }
+}
 
 // user variables
 
@@ -105,12 +119,26 @@ var template3 = React.createElement(
         "Age: ",
         user.age
     ),
+    getLocation(user.location)
+);
+
+// ternary operator
+
+var template4 = React.createElement(
+    "div",
+    null,
     React.createElement(
+        "h1",
+        null,
+        user.name ? user.name : 'Anonymous'
+    ),
+    user.age >= 18 && React.createElement(
         "p",
         null,
-        "Location: ",
-        user.location
-    )
+        "Age: ",
+        user.age
+    ),
+    getLocation(user.location)
 );
 
 var appRoot = document.getElementById('app');
