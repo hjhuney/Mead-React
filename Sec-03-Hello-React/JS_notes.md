@@ -65,3 +65,5 @@ console.log(squareArrow(9));
 ```
 
 We can't use the expression syntax in every scenario. 
+
+## Arrow Functions: Arguments Object No Longer Bounds
