@@ -66,4 +66,32 @@ console.log(squareArrow(9));
 
 We can't use the expression syntax in every scenario. 
 
-## Arrow Functions: Arguments Object No Longer Bounds
+## Arrow Functions: Arguments and This
+
+"This" typically does not work with an anonymous function. Example:
+
+```
+const user = {
+    name: 'LeRoy', 
+    cities: ['Toronto', 'Buffalo', 'Niagara Falls'], 
+    
+    // this.name is accessible here ...
+    printPlacesLived: function () {
+        console.log(this.name);
+        console.log(this.cities);
+        
+    // this.name not accessible here ...
+    this.cities.forEach(function (city) {
+        console.log(this.name);
+    });
+}
+user.printPlacesLived();
+        
+```
+
+However, this will work in an arrow function. 
+
+## Map Method
+
+Map (.map) similar to forEach (.forEach), except .map allows you to transform each item in an array, whereas forEach simply lets you do something to each item (e.g. print via console.log). 
+
