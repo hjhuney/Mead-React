@@ -48,7 +48,7 @@ var appInfo = {
         React.createElement(
             "li",
             null,
-            "Item One"
+            "Item Two"
         )
     )
 );

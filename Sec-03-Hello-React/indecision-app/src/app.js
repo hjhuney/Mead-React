@@ -26,7 +26,7 @@ let template =
     <p>{appInfo.options.length > 0 ? "here are your options" : "no options"}</p>
     <ol>
     <li>Item One</li>
-    <li>Item One</li>
+    <li>Item Two</li>
     </ol>
     </div>;
 
@@ -80,6 +80,6 @@ let template4 =
     {getLocation(user.location)}
     </div>;
 
-let appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
 ReactDOM.render(template, appRoot);
