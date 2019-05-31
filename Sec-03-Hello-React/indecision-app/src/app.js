@@ -80,6 +80,49 @@ let template4 =
     {getLocation(user.location)}
     </div>;
 
+// counter
+
+let count = 0
+const someId = 'my-id'
+
+const template5 = (
+    <div>
+    <h1>Count: {count}</h1>
+    <button id={someId} className="button">+1</button>
+    </div>
+);
+
+const addOne = () => {
+    console.log('addOne');
+};
+
+const template6 = (
+    <div>
+    <h1>Count: {count}</h1>
+    <button onClick={addOne}>+1</button>
+    </div>
+);
+
+// challenge
+// create 2 new buttons
+
+const minusOne = () => {
+    console.log('minusOne');
+};
+
+const reset = () => {
+    console.log('reset');
+};
+
+const template7 = (
+    <div>
+    <h1>Count: {count}</h1>
+    <button onClick={addOne}>+1</button>
+    <button onClick={minusOne}>-1</button>
+    <button onClick={reset}>reset</button>
+    </div>
+);
+
 const appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(template7, appRoot);
