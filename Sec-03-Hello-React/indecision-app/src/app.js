@@ -1,128 +1,60 @@
 console.log('App.js is running!');
 
 
-// JSX - JavaScript XML
+// JSX
 
-let appInfo = {
+const app = {
     title: "Merfin Melvin's Merfin' App!", 
-    subtitle: "Let's merf this hizny up, booooyyyzzzz!", 
-    options: ['One', 'Two']
+    subtitle: "Let's merf this hizzy up, booooyyyzzzz!", 
+    options: []
 }
 
-// let template = 
-//     <div>
-//     <h1>Indecision App</h1> 
-//     <p>This is some info!</p>
-//     <ol>
-//     <li>Item One</li>
-//     <li>Item One</li>
-//     </ol>
-//     </div>;
 
-let template = 
-    <div>
-    <h1>{appInfo.title}</h1> 
-    {appInfo.subtitle && <p>{appInfo.subtitle}</p>}
-    <p>{appInfo.options.length > 0 ? "here are your options" : "no options"}</p>
-    <ol>
-    <li>Item One</li>
-    <li>Item Two</li>
-    </ol>
-    </div>;
+const onFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('form submitted:');
 
+    const option = e.target.elements.option.value;
 
-// user object
-
-let user = {
-    name: 'Walrus McConnell',
-    age: 56, 
-    location: 'Lubbock, TX'
-};
-
-
-function getLocation(location) {
-    if (location) {
-        return <p>Location: {location}</p>;
-    } else {
-        return undefined;
+    if (option) {
+        app.options.push(option);
+        e.target.elements.option.value = '';
+        render();
     }
 }
 
-// user variables
-
-let userName = 'Merfin Melvin';
-let userAge = 48;
-let userLocation = "Albuquerque, NM"
-
-// create a new templete with JSX expression
-let template2 = 
-    <div>
-    <h1>{userName.toUpperCase()}</h1> 
-    <p>Age: {userAge}</p>
-    <p>Location: {userLocation}</p>
-    </div>;
-
-// create template with object
-
-let template3 = 
-    <div>
-    <h1>{user.name}</h1> 
-    <p>Age: {user.age}</p>
-    {getLocation(user.location)}
-    </div>;
-
-// ternary operator
-
-let template4 = 
-    <div>
-    <h1>{user.name ? user.name: 'Anonymous'}</h1> 
-    {user.age >= 18 && <p>Age: {user.age}</p>}
-    {getLocation(user.location)}
-    </div>;
-
-// counter
-
-let count = 0
-const someId = 'my-id'
-
-const template5 = (
-    <div>
-    <h1>Count: {count}</h1>
-    <button id={someId} className="button">+1</button>
-    </div>
-);
-
-const addOne = () => {
-    console.log('addOne');
+// create remove all button
+const onRemoveAll = () => {
+    app.options = [];
+    render();
 };
-
-const template6 = (
-    <div>
-    <h1>Count: {count}</h1>
-    <button onClick={addOne}>+1</button>
-    </div>
-);
-
-// challenge
-// create 2 new buttons
-
-const minusOne = () => {
-    console.log('minusOne');
-};
-
-const reset = () => {
-    console.log('reset');
-};
-
-const template7 = (
-    <div>
-    <h1>Count: {count}</h1>
-    <button onClick={addOne}>+1</button>
-    <button onClick={minusOne}>-1</button>
-    <button onClick={reset}>reset</button>
-    </div>
-);
 
 const appRoot = document.getElementById('app');
 
-ReactDOM.render(template7, appRoot);
+
+// challenge
+const render = () => {
+    const template = (
+        <div>
+        <h1>{app.title}</h1> 
+        {app.subtitle && <p>{app.subtitle}</p>}
+        <p>{app.options.length > 0 ? "here are your options" : "no options"}</p>
+        <p>{app.options.length}</p>
+        <button onClick={onRemoveAll}>Remove All</button>
+        <ol>
+        <li>Item One</li>
+        <li>Item Two</li>
+        </ol>
+        <form onSubmit={onFormSubmit}>
+            <input type="text" name="option" />
+            <button>Add Option</button>
+            
+            
+        </form>
+        </div>
+    );
+
+    ReactDOM.render(template, appRoot);
+};
+
+render();

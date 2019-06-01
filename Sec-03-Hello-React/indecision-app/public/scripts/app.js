@@ -2,223 +2,92 @@
 
 console.log('App.js is running!');
 
-// JSX - JavaScript XML
+// JSX
 
-var appInfo = {
+var app = {
     title: "Merfin Melvin's Merfin' App!",
-    subtitle: "Let's merf this hizny up, booooyyyzzzz!",
-    options: ['One', 'Two']
-
-    // let template = 
-    //     <div>
-    //     <h1>Indecision App</h1> 
-    //     <p>This is some info!</p>
-    //     <ol>
-    //     <li>Item One</li>
-    //     <li>Item One</li>
-    //     </ol>
-    //     </div>;
-
-};var template = React.createElement(
-    "div",
-    null,
-    React.createElement(
-        "h1",
-        null,
-        appInfo.title
-    ),
-    appInfo.subtitle && React.createElement(
-        "p",
-        null,
-        appInfo.subtitle
-    ),
-    React.createElement(
-        "p",
-        null,
-        appInfo.options.length > 0 ? "here are your options" : "no options"
-    ),
-    React.createElement(
-        "ol",
-        null,
-        React.createElement(
-            "li",
-            null,
-            "Item One"
-        ),
-        React.createElement(
-            "li",
-            null,
-            "Item Two"
-        )
-    )
-);
-
-// user object
-
-var user = {
-    name: 'Walrus McConnell',
-    age: 56,
-    location: 'Lubbock, TX'
+    subtitle: "Let's merf this hizzy up, booooyyyzzzz!",
+    options: []
 };
 
-function getLocation(location) {
-    if (location) {
-        return React.createElement(
-            "p",
-            null,
-            "Location: ",
-            location
-        );
-    } else {
-        return undefined;
+var onFormSubmit = function onFormSubmit(e) {
+    e.preventDefault();
+    console.log('form submitted:');
+
+    var option = e.target.elements.option.value;
+
+    if (option) {
+        app.options.push(option);
+        e.target.elements.option.value = '';
+        render();
     }
-}
-
-// user variables
-
-var userName = 'Merfin Melvin';
-var userAge = 48;
-var userLocation = "Albuquerque, NM";
-
-// create a new templete with JSX expression
-var template2 = React.createElement(
-    "div",
-    null,
-    React.createElement(
-        "h1",
-        null,
-        userName.toUpperCase()
-    ),
-    React.createElement(
-        "p",
-        null,
-        "Age: ",
-        userAge
-    ),
-    React.createElement(
-        "p",
-        null,
-        "Location: ",
-        userLocation
-    )
-);
-
-// create template with object
-
-var template3 = React.createElement(
-    "div",
-    null,
-    React.createElement(
-        "h1",
-        null,
-        user.name
-    ),
-    React.createElement(
-        "p",
-        null,
-        "Age: ",
-        user.age
-    ),
-    getLocation(user.location)
-);
-
-// ternary operator
-
-var template4 = React.createElement(
-    "div",
-    null,
-    React.createElement(
-        "h1",
-        null,
-        user.name ? user.name : 'Anonymous'
-    ),
-    user.age >= 18 && React.createElement(
-        "p",
-        null,
-        "Age: ",
-        user.age
-    ),
-    getLocation(user.location)
-);
-
-// counter
-
-var count = 0;
-var someId = 'my-id';
-
-var template5 = React.createElement(
-    "div",
-    null,
-    React.createElement(
-        "h1",
-        null,
-        "Count: ",
-        count
-    ),
-    React.createElement(
-        "button",
-        { id: someId, className: "button" },
-        "+1"
-    )
-);
-
-var addOne = function addOne() {
-    console.log('addOne');
 };
 
-var template6 = React.createElement(
-    "div",
-    null,
-    React.createElement(
-        "h1",
-        null,
-        "Count: ",
-        count
-    ),
-    React.createElement(
-        "button",
-        { onClick: addOne },
-        "+1"
-    )
-);
-
-// challenge
-// create 2 new buttons
-
-var minusOne = function minusOne() {
-    console.log('minusOne');
+// create remove all button
+var onRemoveAll = function onRemoveAll() {
+    app.options = [];
+    render();
 };
-
-var reset = function reset() {
-    console.log('reset');
-};
-
-var template7 = React.createElement(
-    "div",
-    null,
-    React.createElement(
-        "h1",
-        null,
-        "Count: ",
-        count
-    ),
-    React.createElement(
-        "button",
-        { onClick: addOne },
-        "+1"
-    ),
-    React.createElement(
-        "button",
-        { onClick: minusOne },
-        "-1"
-    ),
-    React.createElement(
-        "button",
-        { onClick: reset },
-        "reset"
-    )
-);
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template7, appRoot);
+// challenge
+var render = function render() {
+    var template = React.createElement(
+        "div",
+        null,
+        React.createElement(
+            "h1",
+            null,
+            app.title
+        ),
+        app.subtitle && React.createElement(
+            "p",
+            null,
+            app.subtitle
+        ),
+        React.createElement(
+            "p",
+            null,
+            app.options.length > 0 ? "here are your options" : "no options"
+        ),
+        React.createElement(
+            "p",
+            null,
+            app.options.length
+        ),
+        React.createElement(
+            "button",
+            { onClick: onRemoveAll },
+            "Remove All"
+        ),
+        React.createElement(
+            "ol",
+            null,
+            React.createElement(
+                "li",
+                null,
+                "Item One"
+            ),
+            React.createElement(
+                "li",
+                null,
+                "Item Two"
+            )
+        ),
+        React.createElement(
+            "form",
+            { onSubmit: onFormSubmit },
+            React.createElement("input", { type: "text", name: "option" }),
+            React.createElement(
+                "button",
+                null,
+                "Add Option"
+            )
+        )
+    );
+
+    ReactDOM.render(template, appRoot);
+};
+
+render();
