@@ -217,7 +217,7 @@ let template4 =
 For user age, if user is over 18, we render user.age. If not, nothing is rendered. 
 
 
-# HTML Attributes in JSX
+## HTML Attributes in JSX
 
 Some attributes like "id" work exactly the same way. Others like "class" do not. "Class" is now "className" in JSX. 
 
@@ -234,6 +234,6 @@ This is because "class" is reserved in ES6.
 
 [React: Differences in Attributes](https://reactjs.org/docs/dom-elements.html)
 
-## Event Handlers
+## Manual Data Binding
 
 
