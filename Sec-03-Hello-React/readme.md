@@ -272,6 +272,13 @@ const numbers = [55, 101, 1000];
 }
 ```
 
+## Conditionally Disable a Button in JSX
+
+We can conditionally disable a button with JSX. In the example below, we want to disable the button if the number of options is equal to 0. 
+
+```
+<button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
+```
 
 
 
