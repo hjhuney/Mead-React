@@ -242,6 +242,10 @@ This is because "class" is reserved in ES6.
 
 [React: Differences in Attributes](https://reactjs.org/docs/dom-elements.html)
 
-## Manual Data Binding
+## Arrays in JSX
+
+JSX supports strings and numbers, but not objects. 
+
+
 
 
