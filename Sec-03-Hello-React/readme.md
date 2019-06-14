@@ -246,6 +246,33 @@ This is because "class" is reserved in ES6.
 
 JSX supports strings and numbers, but not objects. 
 
+```
+{
+    [99, 98, 97, 'Mike Smith']
+}
+```
+
+Using keys to avoid error message:
+
+```
+{
+    [<p key="1">a</p>, <p key="2">b</p>, <p key="3">c</p>]
+}
+```
+
+## Map Array
+
+```
+const numbers = [55, 101, 1000];
+
+{
+    numbers.map((number) => {
+        return <p key={number}>Number: {number}</p>
+    })
+}
+```
+
+
 
 
 
