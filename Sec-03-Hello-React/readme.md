@@ -185,6 +185,14 @@ let appRoot = document.getElementById('app');
 ReactDOM.render(template3, appRoot);
 ```
 
+## Running our App with Live-Server
+
+In order to run app on live-server, we need to input:
+
+```
+live-server public
+```
+
 ## Ternary Operators in JSX
 
 Example
