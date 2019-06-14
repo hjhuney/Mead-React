@@ -288,5 +288,38 @@ We can conditionally disable a button with JSX. In the example below, we want to
 
 # Sec 4: React Components
 
-## x
+## Template Strings
+
+In JSX, we can use template strings. Instead of using quote marks, we use backticks. We use $ and curly braces for part we want to run dynamically. 
+
+```
+return `Hi ${this.name}`;
+```
+
+
+## ES6 Classes
+
+Example:
+
+```
+class Person {
+    constructor(name = 'Anonymous') {
+        this.name = name;
+    }
+    getGreeting() {      
+        // using a template string; use backticks rather than quotes
+        return `Hi ${this.name}`;
+    }
+}
+
+const me = new Person();
+
+console.log(me.getGreeting());
+
+const other = new Person("Butt Head");
+console.log(other.getGreeting());
+```
+
+
+
 
