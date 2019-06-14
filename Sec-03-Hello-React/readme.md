@@ -1,7 +1,7 @@
 # Table of Contents
 
-[Section 3: Hello React](https://github.com/hjhuney/Mead-React/blob/master/Sec-03-Hello-React/readme.md#hello-react)
-[Section 4: React Components](https://github.com/hjhuney/Mead-React/blob/master/Sec-03-Hello-React/readme.md#react-components)
+Section 3: [Hello React](https://github.com/hjhuney/Mead-React/blob/master/Sec-03-Hello-React/readme.md#hello-react)<br>
+Section 4: [React Components](https://github.com/hjhuney/Mead-React/blob/master/Sec-03-Hello-React/readme.md#sec-4-react-components)
 
 # Section 3: Hello React
 
