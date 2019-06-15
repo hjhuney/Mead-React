@@ -459,6 +459,46 @@ class Option extends React.Component {
 
 ## Component Props
 
-x
+Allow our components to communicate with each other. 
+
+this.props gives properties of a class
+
+```
+console.log(this.props);
+
+// returns
+// Object { title: "Test value" }
+```
+
+Can use this to call a title for instance:
+
+```
+class IndecisionApp extends React.Component {
+    render() {
+        return (
+            <div>
+                <Header title="Test value" />
+                <Action />
+                <Options />
+                <AddOption />
+            </div>
+            
+        );
+    }
+}
+
+class Header extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>{this.props.title}</h1>
+                <h2>Put your life in the hands of a computer</h2>
+            </div>
+        );
+    }
+}
+```
+
+## Events and Methods
 
 
