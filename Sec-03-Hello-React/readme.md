@@ -373,4 +373,92 @@ class Traveler extends Person {
 }
 ```
 
+## Creating a React Component
+
+Example of using a React Component to create a Header:
+
+```
+class Header extends React.Component {
+    render() {
+        return <p>This is from Header</p>;
+    }
+}
+
+const jsx = (
+    <div>
+        <h1>Title</h1>
+        <Header />
+    </div>
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));
+```
+
+We simply use "<Header />" to re-use the React component, so if we did it 3 times, we'd get the header 3 times. 
+
+In React, must use uppercase first letter for React components. We normally do by convention anyway, but React forces us to do this. 
+
+More complete example:
+
+```
+class Header extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>Indecision</h1>
+                <h2>Put your life in the hands of a computer</h2>
+            </div>
+        );
+    }
+}
+
+class Action extends React.Component {
+    render() {
+        return (
+            <div>
+                <button>What should I do?</button>
+            </div>
+        );
+    }
+}
+
+const jsx = (
+    <div>
+        <h1>Title</h1>
+        <Header />
+        <Action />
+    </div>
+);
+
+ReactDOM.render(jsx, document.getElementById('app'));
+```
+
+## Nesting Components
+
+Example:
+
+```
+class Options extends React.Component {
+    render() {
+        return (
+            <div>
+                <Option />
+            </div>
+        );
+    }
+}
+
+class Option extends React.Component {
+    render() {
+        return (
+            'Some text!!!'
+        );
+    }
+}
+```
+
+## Component Props
+
+x
+
 
