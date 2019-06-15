@@ -320,6 +320,57 @@ const other = new Person("Butt Head");
 console.log(other.getGreeting());
 ```
 
+## ES6: Extending Classes
 
+Example of extending a class to create a new class:
+
+```
+// extending the Person class
+class Student extends Person {
+    // override constructor for Person
+    constructor(name, age, major) {
+        // call parent constructor function
+        super(name, age);
+        this.major = major;
+    }
+    hasMajor() {
+        return !!this.major;
+    }
+    // override getDescription() from Person
+    getDescription(){
+        let description = super.getDescription();
+
+        if (this.hasMajor()) {
+            description = description += `Their major is ${this.major}`;
+        }
+
+        return description;
+    }
+}
+```
+
+The keyword "super" allows us to essentially copy elements from the original class, so "super(name, age)" uses name and age from the Person class in the above example, while super.getDescription() uses the getDescription() method from the Person class.
+
+Addtional example:
+
+```
+class Traveler extends Person {
+    constructor(name, age, homeLocation) {
+        super(name, age);
+        this.homeLocation = homeLocation;
+    }
+    getGreeting() {
+        let greeting = super.getGreeting();
+
+        if(this.homeLocation) {
+            greeting += ` Are you visiting from ${this.homeLocation}?`;
+        }
+        else {
+            greeting += ` I am visiting from Nowhere!`;
+        }
+        return greeting;
+    }
+}
+```
 
 
