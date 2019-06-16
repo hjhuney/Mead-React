@@ -3,9 +3,10 @@
 Section 3: [Hello React](https://github.com/hjhuney/Mead-React/blob/master/Sec-03-Hello-React/readme.md#hello-react)<br>
 Section 4: [React Components](https://github.com/hjhuney/Mead-React/blob/master/Sec-03-Hello-React/readme.md#sec-4-react-components)
 
-## Frequently References Sections
+## Frequently Referenced Sections
 
-Babel: [How to Launch]()
+Babel: [Launch Babel](https://github.com/hjhuney/Mead-React/tree/master/Sec-03-Hello-React#run-babel)<br>
+Live-Server: [Launch Live-Server]()<br>
 
 # Section 3: Hello React
 
@@ -98,6 +99,16 @@ babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
 * Output file (--out-file=public/scripts/app.js). This will override the file. 
 * Presets (--presets=env, react)
 * Watch (--watch); watches our source app.js for changes; automatically create new scripts app.js file with changes
+
+## Live-Server
+
+To launch live server:
+
+```
+live-server public
+```
+
+on directory. 
 
 ## JSX Formatting
 
