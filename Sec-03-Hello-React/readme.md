@@ -554,3 +554,40 @@ class Options extends React.Component {
 
 ' Andrew Mead    '.trim()
 ```
+
+## Method Binding
+
+Set 'this' binding in certain situations; we need to use the bind() method in JS. In .bind(), you can use 1st argument to set 'this' context. In the example below, we set the 'this' context in 'obj.getName.bind(obj)'
+
+```
+const obj = {
+    name: 'Vikram', 
+    getName() {
+        return this.name;
+    }
+}
+
+// this will generate error
+// const getName = obj.getName.bind();
+
+//this works
+const getName = obj.getName.bind(obj);
+
+console.log(getName());
+```
+
+Can also force the binding like this:
+
+```
+const obj = {
+    name: 'Vikram', 
+    getName() {
+        return this.name;
+    }
+}
+
+const getName = obj.getName.bind({name: 'Andrew'});
+
+console.log(getName());
+```
+
