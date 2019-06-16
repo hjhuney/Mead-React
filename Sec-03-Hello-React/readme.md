@@ -5,8 +5,8 @@ Section 4: [React Components](https://github.com/hjhuney/Mead-React/blob/master/
 
 ## Frequently Referenced Sections
 
-Babel: [Launch Babel](https://github.com/hjhuney/Mead-React/tree/master/Sec-03-Hello-React#run-babel)<br>
-Live-Server: [Launch Live-Server]()<br>
+Babel: [Launch](https://github.com/hjhuney/Mead-React/tree/master/Sec-03-Hello-React#run-babel)<br>
+Live-Server: [Launch](https://github.com/hjhuney/Mead-React/tree/master/Sec-03-Hello-React#live-server)<br>
 
 # Section 3: Hello React
 
@@ -518,4 +518,39 @@ class Header extends React.Component {
 
 ## Events and Methods
 
+Example with "handleRemoveAll":
 
+```
+class Options extends React.Component {
+    handleRemoveAll() {
+        alert('remove all!');
+    }
+    render() {
+        return (
+            <div>
+                <button onClick={this.handleRemoveAll}>Remove All</button>
+                {
+                    this.props.options.map((option) => <Option key={option} optionText={option} />)
+                }
+                
+            </div>
+        );
+    }
+}
+```
+
+## .trim()
+
+.trim() removes spaces before and after text, but not inner spaces. For instance:
+
+```
+' Andrew Mead    '
+
+// becomes
+
+'Andrew Mead'
+
+// with
+
+' Andrew Mead    '.trim()
+```
