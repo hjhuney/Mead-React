@@ -591,3 +591,6 @@ const getName = obj.getName.bind({name: 'Andrew'});
 console.log(getName());
 ```
 
+## Component State
+
+
