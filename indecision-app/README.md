@@ -47,4 +47,15 @@ Add "--watch" command to auto-update:
 babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
 ```
 
+## Example JSX Code
+
+```
+let template = <p>This is JSX from app.js</p>;
+let appRoot = document.getElementById('app');
+
+ReactDOM.render(template, appRoot);
+```
+
 ## Exploring JSX
+
+
