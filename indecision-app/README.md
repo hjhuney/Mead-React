@@ -129,3 +129,38 @@ let templateTwo = (
 </div>
 )
 ```
+
+## Ternary Operator
+
+This is a JS expression that returns one value if true and another if false. For instance:
+
+```
+user.name ? user.name : 'Anonymous'
+```
+
+if user.name is true (i.e. it exists), then we return user.name. If it is false (i.e. it doesn't exist), then we return 'Anonymous'. 
+
+## Logical And Operator
+
+```
+true && 'some value'
+
+// returns 'some value'
+```
+
+Whereas:
+
+```
+false && 'some age'
+
+// returns false
+```
+
+A JSX example:
+
+```
+// if user.age is greater than 18, render paragraph, if not render nothing
+
+{user.age >= 18 && <p>Age: {user.age}</p>}
+```
+
