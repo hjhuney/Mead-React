@@ -56,6 +56,76 @@ let appRoot = document.getElementById('app');
 ReactDOM.render(template, appRoot);
 ```
 
-## Exploring JSX
+## JSX Expressions
+
+Here we use JSX for the userName. 
+
+```
+let userName = 'Mike';
+
+let template = (
+    <div>
+    <h1>{userName}</h1>
+    <p>This is some info</p>
+</div>
+)
 
 
+
+let appRoot = document.getElementById('app');
+
+ReactDOM.render(template, appRoot);
+```
+
+We can even perform actions:
+
+```
+let userName = 'Mike';
+let templateTwo = (
+    <div>
+    <h1>{userName.toUpperCase}</h1>
+    <p>This is some info</p>
+</div>
+)
+```
+
+We could also use a JS object:
+
+```
+const user = {
+    name: 'Andrew', 
+    age: 26, 
+    location: 'Philadelphia'
+};
+
+let templateTwo = (
+    <div>
+    <h1>{user.name}</h1>
+    <p>Age: {user.age}</p>
+    <p>Location: {user.location}</p>
+</div>
+);
+
+```
+
+## Conditional Rendering in JSX
+
+If we want to render a statement in one case, but not another. For instance, if our user has a location, we render it, but if they do not, we render 'Unknown'. 
+
+```
+let getLocation = (location) => {
+    if (location) {
+        return location;
+    } else {
+        return 'Unknown';
+    }
+}
+
+let templateTwo = (
+    <div>
+    <h1>{user.name}</h1>
+    <p>Age: {user.age}</p>
+    <p>Location: {getLocation(user.location)}</p>
+</div>
+)
+```
