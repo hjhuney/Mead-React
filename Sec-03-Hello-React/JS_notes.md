@@ -91,7 +91,77 @@ user.printPlacesLived();
 
 However, this will work in an arrow function. 
 
+```
+const user = {
+  name: 'Andrew', 
+  cities: ['Atlanta', 'Boston', 'WashingtonDC'],
+  printPlacesLived: function() {
+    console.log(this.name);
+    console.log(this.cities);
+    
+    this.cities.forEach((city) => {
+      console.log(this.name + ' has lived in ' + city);
+    });
+  }
+}
+
+user.printPlacesLived();
+```
+
+or
+
+```
+const user = {
+  name: 'Andrew', 
+  cities: ['Atlanta', 'Boston', 'WashingtonDC'],
+  printPlacesLived() {
+    console.log(this.name);
+    console.log(this.cities);
+    
+    this.cities.forEach((city) => {
+      console.log(this.name + ' has lived in ' + city);
+    });
+  }
+}
+```
+
 ## Map Method
 
 Map (.map) similar to forEach (.forEach), except .map allows you to transform each item in an array, whereas forEach simply lets you do something to each item (e.g. print via console.log). 
 
+In the example below, we add "Vegas!" to every city name. 
+
+```
+const user = {
+  name: 'Andrew', 
+  cities: ['Atlanta', 'Boston', 'WashingtonDC'],
+  printPlacesLived() {
+
+    const cityMessages = this.cities.map((city) => {
+      return city + " Vegas!";
+    })
+    return cityMessages;
+  }
+}
+
+user.printPlacesLived();
+```
+
+challenge:
+
+```
+const multiplier = {
+  // array of numbers
+  numbers: [1,5,7, 9],
+
+  // single number to multiply by
+  multiplyBy: 5,
+
+  // multiply method
+  multiply() {  
+    return this.numbers.map((aardvark) => aardvark * this.multiplyBy);
+  }
+};
+
+console.log(multiplier.multiply());
+```
